@@ -1,0 +1,15 @@
+{% extends "layout\base.html" %}
+
+{% block title %} Велосипеды {% endblock %}
+
+{% block nav %}
+    <a href="{% url 'main' %}">Главная</a>
+{% endblock %}
+
+{% block section %}
+    {% for bicycle in Bicycles%}
+        <h2>{{bicycle.stamp}}</h2>
+        <p>{{bicycle.release}}</p>
+        <h3>{{bicycle.price}} р/час</h3>
+    {% endfor %}
+{% endblock %}
