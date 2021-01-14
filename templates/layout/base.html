@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+  <head>
+  <!-- Подключаемые файлы, метатеги, название страницы -->
+  <!-- Кодировка страницы-->
+  <meta charset="utf-8"/>
+  <title> {% block title %} {% endblock %} </title>
+  </head>
+<body>
+<!-- Тело сайта, отвечает за вывод на страницу-->
+  <header>
+  <!-- Шапка сайта-->
+      {% block header %}
+      {% endblock %}
+      {% if user.is_authenticated %}
+        <p><a href="{% url 'logout' %}">Выйти</a></p>
+      {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Войти</a>
+        <a href="{% url 'signup' %}">Регистрация</a>
+      {% endif %}
+  </header>
+  <nav>
+  <!-- Навигация -->
+      {% block nav %}
+      {% endblock %}
+  </nav>
+  <section>
+      {% block filter_by_transmissions %}
+      {% endblock %}
+      {% block filter_by_classes %}
+      {% endblock %}
+      {% block section %}
+      {% endblock %}
+  </section>
+  <footer>
+  <!-- Подвал сайта-->
+      {% block footer %}
+      {% endblock %}
+  </footer>
+</body>
+</html>
