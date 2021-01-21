@@ -1,0 +1,16 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Главная {% endblock %}
+
+{% block header %}
+    <p>Привет</Привет> {{ user.username }}!</p>
+{% endblock %}
+
+{% block nav %}
+    <a href="{% url 'main' %}">Главная</a>
+{% endblock %}
+
+{% block section %}
+    <a href="{% url 'cars' %}">Автомобили</a>
+    <a href="{% url 'bicycles' %}">Велосипеды</a>
+{% endblock %}
