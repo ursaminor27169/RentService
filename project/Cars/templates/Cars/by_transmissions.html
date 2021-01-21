@@ -1,0 +1,25 @@
+{% extends "layout\base.html" %}
+
+{% block title %} Автомобили {% endblock %}
+
+{% block nav %}
+    <a href="{% url 'main' %}">Главная</a>
+{% endblock %}
+
+{% block filter_by_transmissions %}
+    <p>Коробка передач</p>
+    {% for T in Transmissions %}
+      <a href="{% url 'filter_by_transmissions' T.pk %}"> {{ T.name }} </a>
+    {% endfor %}
+    <a href="{% url 'cars' %}"> Все </a>
+{% endblock %}
+
+{% block section %}
+    {% for C in Cars%}
+        <h2>{{C.stamp}}</h2>
+        <p>{{C.transmission}}</p>
+        <p>{{C.rank}}</p>
+        <h3 class="rub">{{C.price}} &#8381;/сутки</h3>
+    {% endfor %}
+{% endblock %}
+
